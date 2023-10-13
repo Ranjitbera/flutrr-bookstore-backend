@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors')
@@ -17,4 +18,23 @@ app.use('/user', UserRoutes)
 
 app.listen(8080, ()=>{
     console.log(`Server is running on port...8080`)
+=======
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors')
+const app = express();
+const bodyParser = require('body-parser');
+const db_connection = require('./db_Connection/db')
+require('dotenv').config();
+
+
+
+db_connection();
+app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
+app.use(cors());
+
+app.listen(8080, ()=>{
+    console.log(`Server is running on port...8080`)
+>>>>>>> origin/main
 })
